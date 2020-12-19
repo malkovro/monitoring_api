@@ -1,0 +1,24 @@
+version: '3.0'
+
+services:
+  db:
+    image: mariadb
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: localPassword
+  api:
+    image: openjdk:12
+    command: ["./mvnw", "spring-boot:run"]
+    volumes:
+      - .:/app
+      - maven:/root/.m2
+    working_dir: /app
+    ports:
+      - 8888:8080
+    depends_on:
+      - db
+
+volumes:
+  db_data:
+  maven:
