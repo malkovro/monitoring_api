@@ -8,4 +8,7 @@ class CreateMeasureRepository(private val measuresDatasource: MeasuresDatasource
     fun create(name: String, value: Double): Measure {
         return measuresDatasource.create(name, value)
     }
+    fun createBatch(requests: List<CreateMeasureRequest>): Boolean {
+        return measuresDatasource.createBatch(requests)
+    }
 }
