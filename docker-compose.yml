@@ -18,6 +18,8 @@ services:
       - 8888:8080
     depends_on:
       - db
+    environment:
+      FLYWAY_URL: jdbc:mariadb://db:3306/monitoring_db?user=root&password=localPassword
 
 volumes:
   db_data:
