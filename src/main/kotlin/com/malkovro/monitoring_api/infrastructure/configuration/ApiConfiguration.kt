@@ -8,6 +8,11 @@ import org.springframework.context.annotation.Primary
 import org.springframework.jdbc.core.JdbcTemplate
 import javax.sql.DataSource
 
+class PiConfig {
+    val user = "leo"
+    val host = "10.8.0.18"
+    val password = "YouWish"
+}
 
 @Configuration
 class ApiConfiguration {
@@ -21,5 +26,11 @@ class ApiConfiguration {
     @Bean
     fun applicationDataConnection(): JdbcTemplate {
         return JdbcTemplate(dataSource())
+    }
+
+    @Bean
+    @ConfigurationProperties(prefix = "pi")
+    fun piConfig(): PiConfig? {
+        return PiConfig()
     }
 }

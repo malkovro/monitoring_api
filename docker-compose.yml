@@ -20,6 +20,10 @@ services:
       - db
     environment:
       FLYWAY_URL: jdbc:mariadb://db:3306/monitoring_db?user=root&password=localPassword
+      LOG_LEVEL: DEBUG
+      PI_PASSWORD: testPassword
+      PI_USER: leo
+      PI_HOST: 192.168.1.132
 
 volumes:
   db_data:
