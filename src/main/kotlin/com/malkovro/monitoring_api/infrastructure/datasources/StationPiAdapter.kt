@@ -17,11 +17,11 @@ import java.util.function.Consumer
 @Repository
 class StationPiAdapter(private val configuration: ApiConfiguration) : PiAdapter {
     override fun switchLightsOn(): Boolean {
-        return launchCommand("switch lights --on")
+        return launchCommand("switch light --on")
     }
 
     override fun switchLightsOff(): Boolean {
-        return launchCommand("switch lights --on=false")
+        return launchCommand("switch light \"--on=false\"")
     }
 
     private fun launchCommand(command: String): Boolean {
